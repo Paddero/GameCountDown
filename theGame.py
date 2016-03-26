@@ -24,8 +24,13 @@ GameWords = []
 
 def randomGameLettersGenerator():
     randomGameLetters = []
-    for cons in range (0, 4):
+    for i in range (0, 4):
         randomGameLetters.append(random.choice(Constants))
+     
+    
+    for i in range (0, 3):
+        randomGameLetters.append(random.choice(Vowels))
+    
     
     return randomGameLetters
 
