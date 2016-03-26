@@ -12,6 +12,12 @@ with open("constants.txt" , "r") as f:
     Constants = []
     for line in f:
         Constants.append(line.rstrip('\n'))
+        
+#Reading vowels from file and saving to a list
+with open("vowels.txt" , "r") as f:
+    Vowels = []
+    for line in f:
+        Vowels.append(line.rstrip('\n'))
 
 GameWords = []
 
@@ -19,7 +25,7 @@ GameWords = []
 
 def main():
     print(Constants)
-    
+    print(Vowels)
     
 
 main()
