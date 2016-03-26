@@ -22,10 +22,18 @@ with open("vowels.txt" , "r") as f:
 GameWords = []
 
 
+def randomGameLettersGenerator():
+    randomGameLetters = []
+    for cons in range (0, 4):
+        randomGameLetters.append(random.choice(Constants))
+    
+    return randomGameLetters
 
 def main():
+    gameLetters = randomGameLettersGenerator()
     print(Constants)
     print(Vowels)
+    print(gameLetters)
     
 
 main()
