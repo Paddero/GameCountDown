@@ -2,42 +2,39 @@
 import time
 import random
 
-
 #Reading the files - words,constants and vowels. Inserting them into arrays.
-ListOfWords = open("dictionary.txt","r")
-Vowels = open("vowels.txt","r")
-
-#Reading constants from file and saving to a list
-with open("constants.txt" , "r") as f:
-    Constants = []
-    for line in f:
-        Constants.append(line.rstrip('\n'))
-        
-#Reading vowels from file and saving to a list
-with open("vowels.txt" , "r") as f:
-    Vowels = []
-    for line in f:
-        Vowels.append(line.rstrip('\n'))
-
+Constants = []
+Vowels = []
+Dictionary = []
 GameWords = []
-
 
 def randomGameLettersGenerator():
     randomGameLetters = []
-    for i in range (0, 4):
+    for i in range (0, 5):
         randomGameLetters.append(random.choice(Constants))
      
     
-    for i in range (0, 3):
+    for i in range (0, 4):
         randomGameLetters.append(random.choice(Vowels))
     
     
     return randomGameLetters
-
+        
+    
+def fileReader(listName,fileName):
+    with open(fileName , "r") as f:
+        for line in f:
+            listName.append(line.rstrip('\n'))
+            
+    #print(listName)
+    
 def main():
+    fileReader(Constants, "constants.txt")
+    fileReader(Vowels, "vowels.txt")
+    fileReader(Dictionary, "dictionary.txt")
     gameLetters = randomGameLettersGenerator()
-    print(Constants)
-    print(Vowels)
+    #print(Constants)
+    #print(Vowels)
     print(gameLetters)
     
 
