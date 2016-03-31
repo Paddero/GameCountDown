@@ -77,6 +77,7 @@ def main():
     #Let the game begin, the "contestant" figures out which words can be created with the random generated letters (5 constants/4 vowels)
     theGameContestant()
     
+    #Loop through each possible word in the array, if the length of the word is greater or the equal to main.LongestWord then add that word to LongestWord array.
     for possibleWord in PossibleWords:
         if len(possibleWord) >= main.LongestWord:
              LongestWords.append(possibleWord)
