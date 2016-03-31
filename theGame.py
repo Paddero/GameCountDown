@@ -37,6 +37,7 @@ def theGameContestant():
                 PossibleWords.append(word)
                 if len(word) > main.LongestWord:
                     main.LongestWord = len(word)
+                    LongestWords.append(word)
                 
     
 def fileReader(listName,fileName):
@@ -45,24 +46,34 @@ def fileReader(listName,fileName):
             listName.append(line.rstrip('\n'))
             
 def main():
-    start_time = time.time()
     fileReader(Constants, "constants.txt")
     fileReader(Vowels, "vowels.txt")
     fileReader(Dictionary, "dictionary.txt")
-    main.gameLetters = randomGameLettersGenerator()
+    
+    start_time = time.time()
     main.LongestWord = 0
+    
+    main.gameLetters = randomGameLettersGenerator()
+    random.shuffle(main.gameLetters)
     theGameContestant()
-    print(main.gameLetters)
-    for possibleWord in PossibleWords:
-        print(possibleWord)
-        if len(possibleWord) >= main.LongestWord:
-            LongestWords.append(possibleWord)
+    
+    print("Your random letters are : ", main.gameLetters)
+    #for possibleWord in PossibleWords:
+     #   if len(possibleWord) >= main.LongestWord:
+            #LongestWords.append(possibleWord)
             
+    print("Solving...")
+    print("Solving...")
+    print("Solving...")
     
     StringOfLongestWords = ', '.join(LongestWords)
-    print(LongestWords)
-    print("The Longest Possible Words are : " + StringOfLongestWords + ". They contain " + str(main.LongestWord) + " letters.")
-    print("This game was solved in : %s" %(time.time() - start_time))
+    
+    if len(LongestWords) > 1:
+        print("\nThe Longest Possible Words are : " + StringOfLongestWords.title() + ". They contain " + str(main.LongestWord) + " letters.")
+    else:
+        print("\nThe Longest Possible Word is : " + StringOfLongestWords.title() + ". It contains " + str(main.LongestWord) + " letters.")
+        
+    print("\nThis game was solved in : %s seconds." %(time.time() - start_time))
     
           
           
